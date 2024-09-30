@@ -4,6 +4,8 @@ const app = express();
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import connectDB from "./utils/db.js";
+import userRoute from "./routes/user.route.js";
 dotenv.config({});
 
 //  
@@ -19,6 +21,18 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const PORT =process.env.PORT || 3000;
+
+// api
+app.use("/api/user",userRoute);
+
 app.listen(PORT, () => {
+  connectDB();
   console.log(`Server is running on port ${PORT}`);
 });
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
+
+ 
