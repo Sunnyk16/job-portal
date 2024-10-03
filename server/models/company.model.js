@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
 
-const compantSchema = new mongoose.Schema({
+const companySchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
+        unique: true,
     },
     email: {
         type: String,
-        required: true,
+        // required: true,
     },
     logo: {
         type: String,
@@ -23,19 +24,19 @@ const compantSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true,
+        // required: true,
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: 'User',
         required: true,
     },
     jobType: [
         {
             type: String,
-            required: true,
+            // required: true,
         },
     ],
 }, { timestamps: true });
 
-export default mongoose.model("Company", compantSchema);
+export default mongoose.model("Company", companySchema);
