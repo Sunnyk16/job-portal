@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import Job from "../models/job.model.js";
 const jobSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -25,6 +25,14 @@ const jobSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true,
+    },
+    requirements: {
+        type: String,
+        required: true,
+    },
+    experience: {
+        type: Number,
+        // required: true,
     },
     position:{
         type:String,
