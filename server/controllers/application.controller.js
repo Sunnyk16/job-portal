@@ -72,7 +72,7 @@ export const getAppliedJobs = async (req, res) => {
 export const getApplicants = async (req, res) => {
   try {
     const jobId = req.params._id || req.params.id;
-    console.log(jobId);
+    // console.log(jobId);
     
     const job = await Job.findById(jobId).populate({
       path: "applications",
